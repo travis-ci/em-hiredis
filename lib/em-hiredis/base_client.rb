@@ -95,7 +95,7 @@ module EventMachine::Hiredis
         @failed = false
 
         select(@db) unless @db == 0
-        if @user
+        if @user && !@user.empty?
           auth(password, user) if @password
         else
           auth(@password) if @password
